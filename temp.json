@@ -1,0 +1,122 @@
+{
+    "data": {
+        "sub": "summary"
+    },
+    "children": [
+        {
+            "data": {
+                "sub": "I",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "answer",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "question"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "like",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "write"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "interesting articles",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "read on",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "topics"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "You",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "’ll find",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "read on topics"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "’ll find",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "articles"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "browse",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "my best articles"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "can use",
+                        "ref": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "categories"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

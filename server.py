@@ -29,14 +29,14 @@ def process():
     text = request.args.get("text")
     return jsonify({
         "summary": get_summary(text),
-        "annotations": clean_annotations(annotate(text)),
+        "nodes": create_nodes(clean_annotations(annotate(text))),
         "sections": get_sections(text),
         "entities": get_ents(text)
     })
+        
 
 
-
-@app.route("/tree.json")
+@app.route("/tree")
 def tree():
     return jsonify(json.load(open("./static/tree.json")))
 

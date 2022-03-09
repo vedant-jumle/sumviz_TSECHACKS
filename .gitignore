@@ -131,3 +131,4 @@ dmypy.json
 /models
 /spacy_config
 /training_dataset
+/datasets
