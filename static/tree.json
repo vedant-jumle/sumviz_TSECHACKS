@@ -1,0 +1,62 @@
+{
+    "data": {
+        "sub": "summary"
+    },
+    "children": [
+        {
+            "data": {
+                "sub": "sub1"
+               
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "sub1-ref",
+                        "ref": "ref"
+                    
+                    },
+                    "children": [
+                        {
+                            "data":{
+                                "sub": "sub1-object1-sub1"
+                            }
+                            }
+                        
+                        ]
+                },
+                {
+                    "data": {
+                        "sub": "sub1-object2",
+                        "ref": "ref"
+                    
+                    
+                    }
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "sub2"
+               
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "sub2-object1",
+                        "ref": "ref"
+                    
+                    }
+                },
+                {
+                    "data": {
+                        "sub": "sub2-object2",
+                        "ref": "ref"
+                    
+                    
+                    }
+                }
+            ]
+        }
+        
+    ]
+}
