@@ -305,11 +305,7 @@ font-size: 18px;
     <section>
         <div class="text-editor-sec">
             <div class="editable_viewL col-sm-6">
-<<<<<<< HEAD
                 <textarea id="text_input" rows="34" cols="100" name="description"
-=======
-                <textarea id="text_input" rows="50" cols="100" name="description"
->>>>>>> 46d617ee1ed192c505546376570f53597f3a0e5f
                     class="text-editor">Enter the text</textarea>
             </div>
             <div id="graph" class="editable_viewR col-sm-6 text-editor">
@@ -345,7 +341,7 @@ font-size: 18px;
 
     <div class="summary">
         Summary
-
+        <p id="summary"></p>
 
     </div>
 
@@ -396,6 +392,7 @@ font-size: 18px;
         enitities = data.entities;
 
         build_graph()
+        updateSummary(summary, enitities)
     }
 
     // update the summary element with the summary and hyperlink the salient words such that they do a google search

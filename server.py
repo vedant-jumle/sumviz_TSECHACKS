@@ -32,13 +32,19 @@ def index():
 def process():
     text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
     temp_text = text
+
     nodes = create_nodes(clean_annotations(annotate(text)))
     json_output = open("temp.json", "w")
     json.dump(nodes, json_output, indent=4)
+
+    summary = get_summary(text)
+    sections = get_sections(text)
+    ents = get_ents(summary)
+
     return jsonify({
-        "summary": get_summary(text),
-        "sections": get_sections(text),
-        "entities": get_ents(text)
+        "summary": summary,
+        "sections": sections,
+        "entities": ents
     })
         
 
