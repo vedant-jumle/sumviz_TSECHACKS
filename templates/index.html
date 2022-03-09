@@ -9,6 +9,233 @@
     <!-- <link rel="stylesheet" href="css/app.css"> -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+        body {
+            margin: 0;
+            background: #222;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 800;
+
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #55d6aa;
+
+        }
+
+        header::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /*.logo {
+float: left;
+padding: 10px 0;
+}*/
+
+        nav {
+            float: right;
+            display: flex;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 23px;
+            padding: 30px;
+
+            position: relative;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        nav a::before {
+            content: '';
+            display: block;
+            height: 5px;
+            background-color: #444;
+            position: absolute;
+            top: 0;
+            width: 0%;
+
+            transition: all ease-in-out 250ms;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+
+        .text-editor-sec {
+            display: "flex";
+        }
+
+        .text-editor-sec {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .editable_viewR {
+            display: flex;
+            width: 45%;
+            height: 70vh;
+            margin: auto;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white;
+            margin-top: 30px;
+            margin-right: 30px;
+            margin-bottom: 60px;
+            padding: 25px;
+        }
+
+        .editable_viewL {
+            display: flex;
+            width: 45vw;
+            margin: auto;
+            height: 47vh;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 30px;
+            padding: 0%;
+        }
+
+
+        /* #button-container {
+width: 120px;
+display:block;
+position:relative;
+margin-top: 30px;
+margin-left: 43%;
+text-align: center;
+height: auto;
+background-color: blue;
+padding: 10px;
+padding-inline: 30px;
+border-radius: 20px;
+color:white;
+font-size: 15px;
+}
+
+#who-are-we {
+font-family: Volkorn;
+background: white;
+border: 4px solid black;
+cursor: pointer;
+max-width: 180%;
+max-height: 100%;
+width:220px;
+height: 90px;
+font-size: 200%;
+text-align: center;
+border-radius: 50%;
+}
+button-style{
+background-color: blue;
+padding: 10px;
+padding-inline: 30px;
+border-radius: 20px;
+color:white;
+font-size: 15px;
+}
+
+.button-style:hover{
+background-color: #0066ff;
+color: white;
+font-size: 18px;
+} */
+        .button {
+            border-radius: 4px;
+            background-color: #1eb7f4;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            /* margin: 5px; */
+            border-radius: 20px;
+            display: block;
+            margin-left: 40%;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .hundred{
+            width: 100vw;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            padding-bottom: 5vh;
+        }
+
+        .three-button {
+            width: 100vw;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+            margin: auto;
+            /* transition: all 0.5s; */
+            cursor: pointer;
+
+        }
+
+        .fifty-percent{
+            width:50vw;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,298 +257,203 @@
     <!--Main-->
     <section>
         <div class="text-editor-sec">
-            <div class="editable_viewR col-sm-6">
-                <textarea id="text_input" rows="100" cols="100" name="description" class="text-editor">
-                Enter details here...
-             </textarea>
+            <div class="editable_viewL col-sm-6">
+                <textarea id="text_input" rows="34" cols="100" name="description" class="text-editor">Enter the text</textarea>
             </div>
-            <div class="editable_viewL col-sm-6 text-editor">
-                <script>
-                    summary = ""
-                    nodes = {
-                        "data": {
-                            "sub": "summary"
-                        },
-                        "children": [
-                            {
-                                "data": {
-                                    "sub": "I",
-                                    "click": "click"
+            <div class="editable_viewR col-sm-6 text-editor">
+                <div id="graph">
+                    <script>
+                        summary = ""
+                        nodes = {}
+                        sections = {}
+                        enitities = []
+                        async function query() {
+                            text = document.getElementById("text_input").value;
+                            res = await fetch("/process", {
+                                headers: {
+                                    "Content-Type": "application/json"
                                 },
-                                "children": [
-                                    {
-                                        "data": {
-                                            "sub": "answer",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "question"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "data": {
-                                            "sub": "like",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "write"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "data": {
-                                    "sub": "interesting articles",
-                                    "click": "click"
-                                },
-                                "children": [
-                                    {
-                                        "data": {
-                                            "sub": "read on",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "topics"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "data": {
-                                    "sub": "You",
-                                    "click": "click"
-                                },
-                                "children": [
-                                    {
-                                        "data": {
-                                            "sub": "’ll find",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "read on topics"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "data": {
-                                            "sub": "’ll find",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "articles"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "data": {
-                                            "sub": "browse",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "my best articles"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "data": {
-                                            "sub": "can use",
-                                            "ref": "ref"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "sub": "categories"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                    sections = {}
-                    enitities = []
-                    async function query() {
-                        text = document.getElementById("text_input").value;
-                        res = await fetch("/process", {
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify({
-                                text: text
-                            })
-                        });
+                                body: JSON.stringify({
+                                    text: text
+                                })
+                            });
 
-                        data = await res.json();
-                        summary = data.summary;
-                        nodes = data.nodes;
-                        sections = data.sections;
-                        enitities = data.entities;
-                    }
+                            data = await res.json();
+                            summary = data.summary;
+                            sections = data.sections;
+                            enitities = data.entities;
 
-                    // update the summary element with the summary and hyperlink the salient words such that they do a google search
-                    function updateSummary(summary, salient_words) {
-                        var summary_element = document.getElementById("summary");
-                        summary_element.innerHTML = summary;
-                        var words = summary_element.getElementsByTagName("span");
-                        for (var i = 0; i < words.length; i++) {
-                            var word = words[i];
-                            var word_text = word.innerHTML;
-                            if (salient_words.includes(word_text)) {
-                                word.innerHTML = "<a href='https://www.google.com/search?q=" + word_text + "'>" + word_text + "</a>";
+                            build_graph()
+                        }
+
+                        // update the summary element with the summary and hyperlink the salient words such that they do a google search
+                        function updateSummary(summary, salient_words) {
+                            var summary_element = document.getElementById("summary");
+                            summary_element.innerHTML = summary;
+                            var words = summary_element.getElementsByTagName("span");
+                            for (var i = 0; i < words.length; i++) {
+                                var word = words[i];
+                                var word_text = word.innerHTML;
+                                if (salient_words.includes(word_text)) {
+                                    word.innerHTML = "<a href='https://www.google.com/search?q=" + word_text + "'>" + word_text + "</a>";
+                                }
                             }
                         }
-                    }
 
 
-                    function highlight(start_char, end_char) {
-                        // clear previous highglight
-                        _html = document.getElementById("text_input").innerHTML;
-                        _html = _html.replace("<mark>", "");
-                        _html = _html.replace("<\/mark>", "");
+                        function highlight(start_char, end_char) {
+                            // clear previous highglight
+                            _html = document.getElementById("text_input").innerHTML;
+                            _html = _html.replace("<mark>", "");
+                            _html = _html.replace("<\/mark>", "");
 
-                        // highlight
-                        _html = _html.replace(start_char, "<mark>" + start_char);
-                        _html = _html.replace(end_char, end_char + "</mark>");
-                    }
+                            // highlight
+                            _html = _html.replace(start_char, "<mark>" + start_char);
+                            _html = _html.replace(end_char, end_char + "</mark>");
+                        }
 
-                    function build_graph() {
-                        var canvas = d3.select("body").append("svg")
-                            .attr("width", 700)
-                            .attr("height", 700)
-                            .append("g")
-                            .attr("transform", "translate(50,50)");
-
-
-                        var tree = d3.tree()
-                            .size([400, 400]);
-
-                        d3.json("tree", function (err, data) {
-                            console.log(err)
-                            var nodes = tree(d3.hierarchy(data));
-                            var links = nodes.links();
-
-                            var node = canvas.selectAll(".node")
-                                .data(nodes.descendants())
-                                .enter()
+                        function build_graph() {
+                            var canvas = d3.select(".editable_viewR").append("svg")
+                                .attr("width", 700)
+                                .attr("height", 700)
                                 .append("g")
-                                .attr("class", "node")
-                                .attr("transform", function (d) {
-                                    return "translate(" + d.y + "," + d.x + ")";
-                                });
-                            //action on selecting a circle only for one entity  
+                                .attr("transform", "translate(50,50)");
 
-                            test = "This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. The central question that drives my work is, “How can we live better?” To answer that question, I like to write about science-based ways to solve practical problems. You’ll find interesting articles to read on topics like how to stop procrastinating as well as personal recommendations like my list of the best books to read and my minimalist travel guide. Ready to dive in? You can use the categories below to browse my best articles."
 
-                            node.on("click", function (d) {
-                                if (d.data.data.click == "click") {
-                                    start_string = d.data.data.sub;
-                                    end_string = []
-                                    for (let i = 0; i < d.data.children.length; i++) {
-                                        highlight(start_string, (d.data.children[i].data.sub));
+                            var tree = d3.tree()
+                                .size([400, 400]);
+
+                            d3.json("tree", function (err, data) {
+                                console.log(err)
+                                var nodes = tree(d3.hierarchy(data));
+                                var links = nodes.links();
+
+                                var node = canvas.selectAll(".node")
+                                    .data(nodes.descendants())
+                                    .enter()
+                                    .append("g")
+                                    .attr("class", "node")
+                                    .attr("transform", function (d) {
+                                        return "translate(" + d.y + "," + d.x + ")";
+                                    });
+                                //action on selecting a circle only for one entity  
+
+                                test = "This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. The central question that drives my work is, “How can we live better?” To answer that question, I like to write about science-based ways to solve practical problems. You’ll find interesting articles to read on topics like how to stop procrastinating as well as personal recommendations like my list of the best books to read and my minimalist travel guide. Ready to dive in? You can use the categories below to browse my best articles."
+
+                                node.on("click", function (d) {
+                                    if (d.data.data.click == "click") {
+                                        start_string = d.data.data.sub;
+                                        end_string = []
+                                        for (let i = 0; i < d.data.children.length; i++) {
+                                            highlight(start_string, (d.data.children[i].data.sub));
+                                        }
                                     }
-                                }
-                            });
-                            // node.on("click", function(d) {
-                            //     if(d.data.click != null){
-                            //         console.log("done");
-                            //         return
-                            //     }
-                            // }
-                            // )
+                                });
+                                // node.on("click", function(d) {
+                                //     if(d.data.click != null){
+                                //         console.log("done");
+                                //         return
+                                //     }
+                                // }
+                                // )
 
-                            node.append("circle")
-                                .attr("r", d => {
-                                    if (d.data.data.ref != null) {
-                                        return 5;
-                                    } else { return 20 }
-                                })
-                                .attr("fill", "steelblue");
-
-
-
-                            node.append("text")
-                                .text(function (d) {
-                                    //console.log(d);
-                                    return d.data.data.sub;
-                                })
+                                node.append("circle")
+                                    .attr("r", d => {
+                                        if (d.data.data.ref != null) {
+                                            return 5;
+                                        } else { return 20 }
+                                    })
+                                    .attr("fill", "steelblue");
 
 
 
-                            // var diagonal = d3.svg.diagonal() 
-                            // .projection( function(d) {
-                            //     return [d.y, d.x];
-                            // });
-                            var diagonal = d3.linkVertical()
-                                .x(function (d) { return d.y })
-                                .y(function (d) { return d.x })
+                                node.append("text")
+                                    .text(function (d) {
+                                        //console.log(d);
+                                        return d.data.data.sub;
+                                    })
 
 
 
-                            // const link = d3.link(d3.curveBumpY)
-                            //     .x(d => d.x)
-                            //     .y(d => d.y);
-
-                            canvas.selectAll(".link")
-                                .data(links)
-                                .enter()
-                                .append("path")
-                                .attr("class", "link")
-                                .attr("fill", "none")
-                                .attr("stroke", "#ccc")
-                                .attr("d", diagonal);
+                                // var diagonal = d3.svg.diagonal() 
+                                // .projection( function(d) {
+                                //     return [d.y, d.x];
+                                // });
+                                var diagonal = d3.linkVertical()
+                                    .x(function (d) { return d.y })
+                                    .y(function (d) { return d.x })
 
 
-                        })
-                    }
-                    build_graph()
-                </script>
+
+                                // const link = d3.link(d3.curveBumpY)
+                                //     .x(d => d.x)
+                                //     .y(d => d.y);
+
+                                canvas.selectAll(".link")
+                                    .data(links)
+                                    .enter()
+                                    .append("path")
+                                    .attr("class", "link")
+                                    .attr("fill", "none")
+                                    .attr("stroke", "#ccc")
+                                    .attr("d", diagonal);
+
+
+                            })
+                        }
+                        build_graph()
+                    </script>
+                </div>
                 <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
                  Outpur here
              </textarea> -->
             </div>
         </div>
     </section>
-    <!-- <div id="button-container">
-        <button id="who-are-we" class="font-spec">Summarize</button>
+    <div class="summary">
+
+
     </div>
+    
+    <div class="hundred">
+        <div class="three-button">
+            <button class="button"><span>Intro</span></button>
+            <button class="button"><span>Body</span></button>
+            <button class="button"><span>Conclude</span></button>
+        </div>
+        <div class="fifty-percent">
+
+        </div>
+    </div>
+
     <section class="gen_button">
+        <div class="container col-sm-12">
+            <div class="anim">
+                <!--Butto generate-->
+                <button class="button"><span>Analyze</span></button>
+                <!-- <button class="button"><span>Visualize</span></button>
+                <button class="button"><span>Sections</span></button>
+                <button class="button"><span>Search keywords</span></button> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="gen_button">
         <div class="container col-sm-12">
             <div class="anim">
                 Butto generate
                 <button class="button-style">Generate</button>
             </div>
         </div>
-    </section> -->
+    </section>
     <section class="gen_button">
         <div class="container col-sm-12">
             <div class="anim">
-                <!--Butto generate-->
                 <button class="button"><span>Generate </span></button>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 

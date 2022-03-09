@@ -33,7 +33,6 @@ def process():
     temp_text = text
     return jsonify({
         "summary": get_summary(text),
-        "nodes": create_nodes(clean_annotations(annotate(text))),
         "sections": get_sections(text),
         "entities": get_ents(text)
     })
@@ -42,7 +41,7 @@ def process():
 
 @app.route("/tree")
 def tree():
-    return jsonify(json.load(open("./static/tree.json")))
+    return jsonify(create_nodes(clean_annotations(annotate(temp_text))))
 
 # run the app
 if __name__ == "__main__":
