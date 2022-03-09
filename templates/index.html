@@ -31,79 +31,141 @@
     <section>
         <div class="text-editor-sec">
             <div class="editable_viewR col-sm-6">
-                <textarea rows="100" cols="100" name="description" class="text-editor">
+                <textarea id="text_input" rows="100" cols="100" name="description" class="text-editor">
                 Enter details here...
              </textarea>
             </div>
             <div class="editable_viewL col-sm-6 text-editor">
                 <script>
-                
-                    var canvas = d3.select("body").append("svg")
-                        .attr("width", 700)
-                        .attr("height", 700)
-                        .append("g")
-                        .attr("transform", "translate(50,50)");
+                    async function query() {
+                        text = document.getElementById("text_input").value;
+                        res = await fetch("/process", {
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                text: text
+                            })
+                        });
+
+                        data = await res.json();
+                    }
+
+                    // update the summary element with the summary and hyperlink the salient words such that they do a google search
+                    function updateSummary(summary, salient_words) {
+                        var summary_element = document.getElementById("summary");
+                        summary_element.innerHTML = summary;
+                        var words = summary_element.getElementsByTagName("span");
+                        for (var i = 0; i < words.length; i++) {
+                            var word = words[i];
+                            var word_text = word.innerHTML;
+                            if (salient_words.includes(word_text)) {
+                                word.innerHTML = "<a href='https://www.google.com/search?q=" + word_text + "'>" + word_text + "</a>";
+                            }
+                        }
+                    }
 
 
-                    var tree = d3.tree()
-                        .size([400, 400]);
+                    function highlight(start_char, end_char) {
+                        // clear previous highglight
+                        _html = document.getElementById("text_input").innerHTML;
+                        _html = _html.replace("<mark>", "");
+                        _html = _html.replace("<\/mark>", "");
 
-                    d3.json("tree.json", function (err, data) {
-                        console.log(err)
-                        var nodes = tree(d3.hierarchy(data));
-                        var links = nodes.links();
+                        // highlight
+                        _html = _html.replace(start_char, "<mark>" + start_char);
+                        _html = _html.replace(end_char, end_char + "</mark>");
+                    }
 
-                        var node = canvas.selectAll(".node")
-                            .data(nodes.descendants())
-                            .enter()
+                    function build_graph() {
+                        var canvas = d3.select("body").append("svg")
+                            .attr("width", 700)
+                            .attr("height", 700)
                             .append("g")
-                            .attr("class", "node")
-                            .attr("transform", function (d) {
-                                return "translate(" + d.y + "," + d.x + ")";
+                            .attr("transform", "translate(50,50)");
+
+
+                        var tree = d3.tree()
+                            .size([400, 400]);
+
+                        d3.json("tree.json", function (err, data) {
+                            console.log(err)
+                            var nodes = tree(d3.hierarchy(data));
+                            var links = nodes.links();
+
+                            var node = canvas.selectAll(".node")
+                                .data(nodes.descendants())
+                                .enter()
+                                .append("g")
+                                .attr("class", "node")
+                                .attr("transform", function (d) {
+                                    return "translate(" + d.y + "," + d.x + ")";
+                                });
+                            //action on selecting a circle only for one entity  
+
+                            test = "This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. The central question that drives my work is, “How can we live better?” To answer that question, I like to write about science-based ways to solve practical problems. You’ll find interesting articles to read on topics like how to stop procrastinating as well as personal recommendations like my list of the best books to read and my minimalist travel guide. Ready to dive in? You can use the categories below to browse my best articles."
+
+                            node.on("click", function (d) {
+                                if (d.data.data.click == "click") {
+                                    start_string = d.data.data.sub;
+                                    end_string = []
+                                    for (let i = 0; i < d.data.children.length; i++) {
+                                        highlight(start_string, (d.data.children[i].data.sub));
+                                    }
+                                }
                             });
+                            // node.on("click", function(d) {
+                            //     if(d.data.click != null){
+                            //         console.log("done");
+                            //         return
+                            //     }
+                            // }
+                            // )
 
-                        node.append("circle")
-                            .attr("r", d => {
-                                if (d.data.data.ref != null) {
-                                    return 5;
-                                } else { return 20 }
-                            })
-                            .attr("fill", "steelblue");
-
-
-
-                        node.append("text")
-                            .text(function (d) {
-                                //console.log(d);
-                                return d.data.data.sub;
-                            })
-
-
-                        // var diagonal = d3.svg.diagonal() 
-                        // .projection( function(d) {
-                        //     return [d.y, d.x];
-                        // });
-                        var diagonal = d3.linkVertical()
-                            .x(function (d) { return d.y })
-                            .y(function (d) { return d.x })
+                            node.append("circle")
+                                .attr("r", d => {
+                                    if (d.data.data.ref != null) {
+                                        return 5;
+                                    } else { return 20 }
+                                })
+                                .attr("fill", "steelblue");
 
 
 
-                        // const link = d3.link(d3.curveBumpY)
-                        //     .x(d => d.x)
-                        //     .y(d => d.y);
-
-                        canvas.selectAll(".link")
-                            .data(links)
-                            .enter()
-                            .append("path")
-                            .attr("class", "link")
-                            .attr("fill", "none")
-                            .attr("stroke", "#ccc")
-                            .attr("d", diagonal);
+                            node.append("text")
+                                .text(function (d) {
+                                    //console.log(d);
+                                    return d.data.data.sub;
+                                })
 
 
-                    }) 
+
+                            // var diagonal = d3.svg.diagonal() 
+                            // .projection( function(d) {
+                            //     return [d.y, d.x];
+                            // });
+                            var diagonal = d3.linkVertical()
+                                .x(function (d) { return d.y })
+                                .y(function (d) { return d.x })
+
+
+
+                            // const link = d3.link(d3.curveBumpY)
+                            //     .x(d => d.x)
+                            //     .y(d => d.y);
+
+                            canvas.selectAll(".link")
+                                .data(links)
+                                .enter()
+                                .append("path")
+                                .attr("class", "link")
+                                .attr("fill", "none")
+                                .attr("stroke", "#ccc")
+                                .attr("d", diagonal);
+
+
+                        })
+                    }
                 </script>
                 <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
                  Outpur here
