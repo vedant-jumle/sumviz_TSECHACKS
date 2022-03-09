@@ -116,7 +116,7 @@ padding: 10px 0;
             display: flex;
             width: 45vw;
             margin: auto;
-            height: 47vh;
+            height: 77vh;
             flex-direction: column;
             justify-content: space-between;
             margin: 30px;
@@ -209,7 +209,7 @@ font-size: 18px;
             right: 0;
         }
 
-        .hundred{
+        .hundred {
             width: 100vw;
             display: flex;
             margin: auto;
@@ -228,20 +228,67 @@ font-size: 18px;
 
         }
 
-        .fifty-percent{
-            width:50vw;
+        .fifty-percent {
+            width: 50vw;
             flex-direction: row;
             display: flex;
             justify-content: space-evenly;
             margin: auto;
+        }
+
+        .summary {
+            display: flex;
+            background-color: #92F183;
+            width: 100%;
+            height: 100px;
+            border-radius: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            justify-content: center;
+
+        }
+
+        /* .brand-logo {
+            transform: scale(0.5);
+            text-align: left;
+            float: left;
+
+
+        } */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            z-index: 9;
+            margin-left: 0px;
+        }
+
+        .nav {
+            padding: 10px 10vw;
+            display: flex;
+            justify-content: left;
+            padding-left: 0%;
+        }
+
+        .brand-logo {
+            height: 100px;
+            float: left;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div>
+        <div class="navbar">
             <nav>
+                <div class="nav">
+                    <img src="https://cdn.discordapp.com/attachments/950975761228111894/951242173033091092/logo_prev_ui_1.png"
+                        class="brand-logo" alt="">
+
+                </div>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
@@ -258,7 +305,8 @@ font-size: 18px;
     <section>
         <div class="text-editor-sec">
             <div class="editable_viewL col-sm-6">
-                <textarea id="text_input" rows="34" cols="100" name="description" class="text-editor">Enter the text</textarea>
+                <textarea id="text_input" rows="50" cols="100" name="description"
+                    class="text-editor">Enter the text</textarea>
             </div>
             <div class="editable_viewR col-sm-6 text-editor">
                 <div id="graph">
@@ -410,11 +458,7 @@ font-size: 18px;
             </div>
         </div>
     </section>
-    <div class="summary">
 
-
-    </div>
-    
     <div class="hundred">
         <div class="three-button">
             <button class="button"><span>Intro</span></button>
@@ -437,6 +481,12 @@ font-size: 18px;
             </div>
         </div>
     </section>
+
+    <div class="summary">
+        Summary
+
+
+    </div>
 
 
     <!-- <section class="gen_button">
