@@ -269,13 +269,13 @@ font-size: 18px;
                         enitities = []
                         async function query() {
                             text = document.getElementById("text_input").value;
-                            res = await fetch("/process", {
+                            res = await fetch(`/process?text=${text}`, {
                                 headers: {
                                     "Content-Type": "application/json"
                                 },
-                                body: JSON.stringify({
-                                    text: text
-                                })
+                                // body: JSON.stringify({
+                                //     text: text
+                                // })
                             });
 
                             data = await res.json();
@@ -324,7 +324,7 @@ font-size: 18px;
                                 .size([400, 400]);
 
                             d3.json("tree", function (err, data) {
-                                console.log(err)
+                                console.log(data)
                                 var nodes = tree(d3.hierarchy(data));
                                 var links = nodes.links();
 
@@ -401,7 +401,6 @@ font-size: 18px;
 
                             })
                         }
-                        build_graph()
                     </script>
                 </div>
                 <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
@@ -430,7 +429,7 @@ font-size: 18px;
         <div class="container col-sm-12">
             <div class="anim">
                 <!--Butto generate-->
-                <button class="button"><span>Analyze</span></button>
+                <button class="button" onclick="query()"><span>Analyze</span></button>
                 <!-- <button class="button"><span>Visualize</span></button>
                 <button class="button"><span>Sections</span></button>
                 <button class="button"><span>Search keywords</span></button> -->
