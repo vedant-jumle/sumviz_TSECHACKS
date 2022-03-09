@@ -19,12 +19,14 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 def get_summary(text):
-    return " ".join(summarizer(text, min_length=60))
+    summary = " ".join(summarizer(text, min_length=20))
+    return summary
 
 def annotate(text):
+    print("ann", text)
     with StanfordOpenIE(properties=properties) as stanford_openie:
         return stanford_openie.annotate(text)
-        
+
 def clean_annotations(annotations, thres=0.6):
     for i, annotation in enumerate(annotations):
         for j, annotation_2 in enumerate(annotations):

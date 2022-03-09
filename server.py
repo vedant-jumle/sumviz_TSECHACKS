@@ -32,6 +32,9 @@ def index():
 def process():
     text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
     temp_text = text
+    nodes = create_nodes(clean_annotations(annotate(text)))
+    json_output = open("temp.json", "w")
+    json.dump(nodes, json_output, indent=4)
     return jsonify({
         "summary": get_summary(text),
         "sections": get_sections(text),
@@ -41,7 +44,12 @@ def process():
 
 @app.route("/tree")
 def tree():
-    return jsonify(create_nodes(clean_annotations(annotate(temp_text))))
+    # text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
+
+    input_file = open("temp.json", "r")
+    data = json.load(input_file)
+
+    return jsonify(data)
 
 # run the app
 if __name__ == "__main__":
