@@ -8,9 +8,9 @@ summarizer = TransformerSummarizer(
     transformer_model_key="gpt2-medium",
 )
 
-stanford_openie = StanfordOpenIE(properties={
+properties = {
     'openie.affinity_probability_cap': 2/3,
-})
+}
 
 section_nlp = spacy.load("./models/section_NER/model-best")
 nlp = spacy.load('en_core_web_sm')
@@ -19,11 +19,12 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 def get_summary(text):
-    return summarizer.summarize(text)
+    return " ".join(summarizer(text, min_length=60))
 
 def annotate(text):
-    return stanford_openie.annotate(text)
-
+    with StanfordOpenIE(properties=properties) as stanford_openie:
+        return stanford_openie.annotate(text)
+        
 def clean_annotations(annotations, thres=0.6):
     for i, annotation in enumerate(annotations):
         for j, annotation_2 in enumerate(annotations):
@@ -33,11 +34,13 @@ def clean_annotations(annotations, thres=0.6):
             if i!=j and similar(cmp_string_1, cmp_string_2) > thres:
                 del annotations[j]
 
+    print(annotations)
+
     return annotations
 
 def get_sections(text):
     sections = []
-    for section in section_nlp(text):
+    for section in section_nlp(text).ents:
         sections.append({
             "text": section.text,
             "start": section.start_char,

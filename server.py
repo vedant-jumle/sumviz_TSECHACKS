@@ -2,6 +2,7 @@
 from datasets import ReadInstruction
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
+from js2py import require
 from modules import *
 import os
 import json
@@ -27,9 +28,9 @@ def index():
 
 
 # get the text from the body of the get request
-@app.route("/process/")
+@app.route("/process")
 def process():
-    text = request.args.get("text")
+    text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
     temp_text = text
     return jsonify({
         "summary": get_summary(text),
@@ -37,7 +38,6 @@ def process():
         "entities": get_ents(text)
     })
         
-
 
 @app.route("/tree")
 def tree():
