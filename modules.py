@@ -47,6 +47,40 @@ def get_sections(text):
     return sections
 
 
+def create_nodes(annotations):
+    data = {
+        "data": {"sub": "summary"},
+        "children": []
+    }
+
+    parents = []
+
+    for i, annotation in enumerate(annotations):
+        if annotation["subject"] not in parents:
+            parents.append(annotation["subject"])
+            data["children"].append({
+                "data": {"sub": annotation["subject"], "click": "click"},
+                "children": [
+                    {
+                        "data": {"sub": annotation["relation"], "ref": "ref"},
+                        "children": [{
+                            "data": {"sub": annotation["object"]}
+                        }]
+                    }
+                ]
+            })
+        else:
+            index = parents.index(annotation["subject"])
+            data["children"][index]["children"].append({
+                "data": {"sub": annotation["relation"], "ref": "ref"},
+                "children": [{
+                    "data": {"sub": annotation["object"]},
+                }]
+            })
+
+    return data
+
+
 def get_ents(text):
     l = []
     doc = nlp(text)
