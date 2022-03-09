@@ -37,6 +37,131 @@
             </div>
             <div class="editable_viewL col-sm-6 text-editor">
                 <script>
+                    summary = ""
+                    nodes = {
+                        "data": {
+                            "sub": "summary"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "sub": "I",
+                                    "click": "click"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "sub": "answer",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "question"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "sub": "like",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "write"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "sub": "interesting articles",
+                                    "click": "click"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "sub": "read on",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "topics"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "sub": "You",
+                                    "click": "click"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "sub": "’ll find",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "read on topics"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "sub": "’ll find",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "articles"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "sub": "browse",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "my best articles"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "sub": "can use",
+                                            "ref": "ref"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "sub": "categories"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    sections = {}
+                    enitities = []
                     async function query() {
                         text = document.getElementById("text_input").value;
                         res = await fetch("/process", {
@@ -49,6 +174,10 @@
                         });
 
                         data = await res.json();
+                        summary = data.summary;
+                        nodes = data.nodes;
+                        sections = data.sections;
+                        enitities = data.entities;
                     }
 
                     // update the summary element with the summary and hyperlink the salient words such that they do a google search
@@ -88,7 +217,7 @@
                         var tree = d3.tree()
                             .size([400, 400]);
 
-                        d3.json("tree.json", function (err, data) {
+                        d3.json("tree", function (err, data) {
                             console.log(err)
                             var nodes = tree(d3.hierarchy(data));
                             var links = nodes.links();
@@ -166,6 +295,7 @@
 
                         })
                     }
+                    build_graph()
                 </script>
                 <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
                  Outpur here

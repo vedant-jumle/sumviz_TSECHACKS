@@ -12,6 +12,9 @@ app = Flask(__name__)
 # CORS(app)
 
 
+temp_text = ""
+
+
 # set static folder
 app.config['STATIC_FOLDER'] = 'static'
 
@@ -27,6 +30,7 @@ def index():
 @app.route("/process/")
 def process():
     text = request.args.get("text")
+    temp_text = text
     return jsonify({
         "summary": get_summary(text),
         "annotations": clean_annotations(annotate(text)),
@@ -36,7 +40,7 @@ def process():
 
 
 
-@app.route("/tree.json")
+@app.route("/tree")
 def tree():
     return jsonify(json.load(open("./static/tree.json")))
 
