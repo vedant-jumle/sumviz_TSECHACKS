@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="css/app.css"> -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <title>Home</title>
     <style>
@@ -40,11 +39,6 @@
             display: table;
             clear: both;
         }
-
-        /*.logo {
-float: left;
-padding: 10px 0;
-}*/
 
         nav {
             float: right;
@@ -142,50 +136,6 @@ padding: 10px 0;
             padding: 25px;
         }
 
-
-        /* #button-container {
-width: 120px;
-display:block;
-position:relative;
-margin-top: 30px;
-margin-left: 43%;
-text-align: center;
-height: auto;
-background-color: blue;
-padding: 10px;
-padding-inline: 30px;
-border-radius: 20px;
-color:white;
-font-size: 15px;
-}
-
-#who-are-we {
-font-family: Volkorn;
-background: white;
-border: 4px solid black;
-cursor: pointer;
-max-width: 180%;
-max-height: 100%;
-width:220px;
-height: 90px;
-font-size: 200%;
-text-align: center;
-border-radius: 50%;
-}
-button-style{
-background-color: blue;
-padding: 10px;
-padding-inline: 30px;
-border-radius: 20px;
-color:white;
-font-size: 15px;
-}
-
-.button-style:hover{
-background-color: #0066ff;
-color: white;
-font-size: 18px;
-} */
         .button {
             border-radius: 4px;
             background-color: #1eb7f4;
@@ -258,23 +208,16 @@ font-size: 18px;
         .summary {
             display: flex;
             background-color: #92F183;
-            width: 100%;
-            height: 100px;
+            width: 96vw;
+            height: auto;
             border-radius: 30px;
             margin-top: 30px;
             margin-bottom: 30px;
-
+            text-align: center;
             justify-content: center;
-
+            padding: 20px;
         }
 
-        /* .brand-logo {
-            transform: scale(0.5);
-            text-align: left;
-            float: left;
-
-
-        } */
         .navbar {
             position: sticky;
             top: 0;
@@ -296,29 +239,193 @@ font-size: 18px;
             height: 100px;
             float: left;
         }
+
+        #footer {
+            background: black;
+            padding: 0 0 30px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        #footer .footer-top {
+            background: #0c0b09;
+            border-top: 1px solid #37332a;
+            border-bottom: 1px solid #28251f;
+            padding: 60px 0 30px 0;
+        }
+
+        #footer .footer-top .footer-info {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            padding: 2px 0 2px 0;
+            line-height: 1;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: "Poppins", sans-serif;
+        }
+
+        #footer .footer-top .footer-info p {
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: 0;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+        }
+
+        #footer .footer-top .social-links a {
+            font-size: 18px;
+            display: inline-block;
+            background: #28251f;
+            color: #fff;
+            line-height: 1;
+            padding: 8px 0;
+            margin-right: 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+
+        #footer .footer-top .social-links a:hover {
+            background: #b11c1c;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #footer .footer-top h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        #footer .footer-top .footer-links {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #footer .footer-top .footer-links ul i {
+            padding-right: 2px;
+            color: #b11c1c;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        #footer .footer-top .footer-links ul li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #footer .footer-top .footer-links ul li:first-child {
+            padding-top: 0;
+        }
+
+        #footer .footer-top .footer-links ul a {
+            color: rgb(255, 0, 0);
+            transition: 0.3s;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        #footer .footer-top .footer-links ul a:hover {
+            color: #000000;
+        }
+
+        #footer .footer-top .footer-newsletter form {
+            margin-top: 30px;
+            background: #28251f;
+            padding: 6px 10px;
+            position: relative;
+            border-radius: 50px;
+            border: 1px solid #ffffff;
+        }
+
+        #footer .footer-top .footer-newsletter form input[type=email] {
+            border: 0;
+            padding: 4px;
+            width: calc(100% - 110px);
+            background: #28251f;
+            color: white;
+        }
+
+        #footer .footer-top .footer-newsletter form input[type=submit] {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            border: 0;
+            background: none;
+            font-size: 16px;
+            padding: 0 20px 2px 20px;
+            background: #b11c1c;
+            color: rgb(255, 0, 0);
+            transition: 0.3s;
+            border-radius: 50px;
+        }
+
+        #footer .footer-top .footer-newsletter form input[type=submit]:hover {
+            background: #b11c1c;
+        }
+
+        #footer .copyright {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #footer .credits {
+            padding-top: 10px;
+            text-align: center;
+            font-size: 13px;
+            color: #b11c1c;
+        }
+
+        .class-hover:hover {
+            color: red;
+        }
+
+        .copyright-names {
+            color: white;
+        }
+        
+        .line_al{
+            display:flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="navbar">
-            <nav>
-                <div class="nav">
-                    <img src="https://cdn.discordapp.com/attachments/950975761228111894/951242173033091092/logo_prev_ui_1.png"
-                        class="brand-logo" alt="">
-
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Summarize text</a></li>
-                    <li><a href="#">Other</a></li>
-
-                </ul>
-            </nav>
-
+        <div class="brandnav">
+            <img src="https://cdn.discordapp.com/attachments/950975761228111894/951242173033091092/logo_prev_ui_1.png"
+                class="brand-logo" alt="">
+            <div class="name">
+                Sumwiz
+            </div>
         </div>
 
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#graph">Visualize text</a></li>
+                    <li><a href="#sum">Summarize text</a></li>
+                </ul>
+            </nav>
+        </div>
+        </div>
     </header>
     <!--Main-->
     <section>
@@ -329,9 +436,6 @@ font-size: 18px;
                 <p id="P_input" class="text-editor"></p>
             </div>
             <div id="graph" class="editable_viewR col-sm-6 text-editor">
-                <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
-                 Outpur here
-             </textarea> -->
             </div>
         </div>
     </section>
@@ -349,41 +453,40 @@ font-size: 18px;
 
     <section class="gen_button">
         <div class="container col-sm-12">
-            <div class="anim">
+            <div class="anim line_al">
                 <!--Butto generate-->
-                <button class="button" onclick="query()"><span>Analyze</span></button>
-                <!-- <button class="button"><span>Visualize</span></button>
-                <button class="button"><span>Sections</span></button>
-                <button class="button"><span>Search keywords</span></button> -->
+                <div style="margin-left:100px ;">
+                    <button class="button" onclick="query()"><span>Analyze</span></button>
+                </div>
+                <div style="margin-right: 300px;">
+                    <button class="button" onclick="reset_input()"><span>Reset</span></button>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="summary">
-        Summary
+    <div id="sum" class="summary">
+        <h3><b>Summary:</b></h3>
         <p id="summary"></p>
 
     </div>
+    <span id="follow us">
+        <footer id="footer">
 
-
-    <!-- <section class="gen_button">
-        <div class="container col-sm-12">
-            <div class="anim">
-                Butto generate
-                <button class="button-style">Generate</button>
+            <div class="container">
+                <div class="copyright">
+                    Developed By : <strong><span><a class="class-hover copyright-names"
+                                href="https://www.linkedin.com/in/nidhi-kashyap-9a5b7922a/" target="_blank">Nidhi
+                            </a>| <a class="class-hover copyright-names"
+                                href="https://www.linkedin.com/in/virenkeswani/" target="_blank">Viren</a> | <a
+                                class="class-hover copyright-names"
+                                href="https://www.linkedin.com/in/aditya-shah-139154208/" target="_blank">Aditya</a> |
+                            <a class="class-hover copyright-names" href="https://www.linkedin.com/in/vedantjumle/"
+                                target="_blank">Vedant</a></span></strong>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="gen_button">
-        <div class="container col-sm-12">
-            <div class="anim">
-                <button class="button"><span>Generate </span></button>
-            </div>
-        </div>
-    </section> -->
-
-
-
+        </footer>
+    </span>
 </body>
 <script>
     is_locked = false;
@@ -403,9 +506,6 @@ font-size: 18px;
             headers: {
                 "Content-Type": "application/json"
             },
-            // body: JSON.stringify({
-            //     text: text
-            // })
         });
 
         data = await res.json();
@@ -435,18 +535,16 @@ font-size: 18px;
     function updateSummary(summary, salient_words) {
         var summary_element = document.getElementById("summary");
         summary_element.innerHTML = summary;
-        var words = summary_element.getElementsByTagName("span");
-        for (var i = 0; i < words.length; i++) {
-            var word = words[i];
-            var word_text = word.innerHTML;
-            if (salient_words.includes(word_text)) {
-                word.innerHTML = "<a href='https://www.google.com/search?q=" + word_text + "'>" + word_text + "</a>";
-            }
+        // create hyperlinks in the summary for words in salient_words such that they do google search
+        for (var i = 0; i < salient_words.length; i++) {
+            var word = salient_words[i];
+            var regex = new RegExp(word, "g");
+            summary_element.innerHTML = summary_element.innerHTML.replace(regex, `<a href='https://www.google.com/search?q=${word}' target='_blank'>${word}</a>`);
         }
     }
 
     function highlight_section(section_name) {
-        if (is_locked){
+        if (is_locked) {
             for (let i = 0; i < sections.length; i++) {
                 if (sections[i].type == section_name) {
                     console.log(sections[i].start, sections[i].end)
@@ -454,21 +552,21 @@ font-size: 18px;
                     break
                 }
             }
-        }else{
+        } else {
             alert("Please click the analyze button first")
         }
     }
 
     function highlight(start_char, end_char) {
         // clear previous highglight
-        if (is_locked){
+        if (is_locked) {
             para = document.getElementById("P_input");
             para.innerHTML = para.innerHTML.replace("<mark>", "")
             para.innerHTML = para.innerHTML.replace("</mark>", "")
-            
+
             // insert <mark> at start_char and </mark> at end_char
             para.innerHTML = para.innerHTML.substring(0, start_char) + "<mark>" + para.innerHTML.substring(start_char, end_char) + "</mark>" + para.innerHTML.substring(end_char);
-        }else{
+        } else {
             alert("Please click the analyze button first")
         }
     }
@@ -520,14 +618,6 @@ font-size: 18px;
                     }
                 }
             });
-            // node.on("click", function(d) {
-            //     if(d.data.click != null){
-            //         console.log("done");
-            //         return
-            //     }
-            // }
-            // )
-
             node.append("circle")
                 .attr("r", d => {
                     if (d.data.data.type == "ref") {
@@ -535,11 +625,11 @@ font-size: 18px;
                     } else { return 20 }
                 })
                 .attr("fill", d => {
-                    if (d.data.data.type == "obj"){
+                    if (d.data.data.type == "obj") {
                         return "#ffcc66"
-                    }else if(d.data.data.type == "root" || d.data.data.type == "ref"){
+                    } else if (d.data.data.type == "root" || d.data.data.type == "ref") {
                         return "steelblue"
-                    }else{
+                    } else {
                         return "#dd99ff"
                     }
                 });
@@ -569,21 +659,10 @@ font-size: 18px;
                     } else { return "16px" }
                 })
 
-
-
-            // var diagonal = d3.svg.diagonal() 
-            // .projection( function(d) {
-            //     return [d.y, d.x];
-            // });
             var diagonal = d3.linkVertical()
                 .x(function (d) { return d.y * 2 })
                 .y(function (d) { return d.x * 0.2 * num_parent_nodes })
 
-
-
-            // const link = d3.link(d3.curveBumpY)
-            //     .x(d => d.x)
-            //     .y(d => d.y);
 
             canvas.selectAll(".link")
                 .data(links)

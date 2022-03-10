@@ -6,7 +6,7 @@
     "children": [
         {
             "data": {
-                "sub": "fought victory",
+                "sub": "hospital",
                 "click": "click"
             },
             "children": [
@@ -18,7 +18,7 @@
                     "children": [
                         {
                             "data": {
-                                "sub": "West Bengal polls",
+                                "sub": "besieged port city of Mariupol",
                                 "type": "obj"
                             }
                         }
@@ -28,19 +28,19 @@
         },
         {
             "data": {
-                "sub": "Trinamool Congress",
+                "sub": "airstrikes",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "won",
+                        "sub": "hit including",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "fought victory",
+                                "sub": "two west",
                                 "type": "obj"
                             }
                         }
@@ -48,13 +48,13 @@
                 },
                 {
                     "data": {
-                        "sub": "won In",
+                        "sub": "hit including",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "May",
+                                "sub": "two west",
                                 "type": "obj"
                             }
                         }
@@ -64,41 +64,19 @@
         },
         {
             "data": {
-                "sub": "political party",
+                "sub": "attacks",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "for",
+                        "sub": "came amid",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "fortunes",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Uttar Pradesh",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "Unarguably is most important state",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "since it sends",
+                                "sub": "hopes for mass evacuations of civilians from cities including Mariupol",
                                 "type": "obj"
                             }
                         }
@@ -106,621 +84,13 @@
                 },
                 {
                     "data": {
-                        "sub": "can",
+                        "sub": "came amid",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "why can tricky",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "important state",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "country",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "time",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is more",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "lot",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "it",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "major states",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "is in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "states",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "is",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "entirely surprising",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "They",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "chose",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "none of these",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "chose",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "none",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "only issue",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "was",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "long pendency of their dues from sugar cane",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "crushing factories",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "area",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "locals",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "Purvanchal",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "told",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "us",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Yadav community",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "In contrast dominant in central Uttar Pradesh",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "is dominant in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "central Uttar Pradesh",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "holding",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is affair for",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "its politicians",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "is also affair for",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "its politicians",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "four players",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "have come in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "last four decades",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "formed",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "alliance governments",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "state",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "around",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "polity",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "incumbent",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "only be booted out at_time",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "time",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Our experience",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "tells",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "us",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "parties",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "have",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "lot riding on polls",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "principal parties",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "have As",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "As players",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "defeat",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "only increase din",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "for anchor lead",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "increase din",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "for stronger anchor lead",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "increase",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "for stronger anchor lead",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "will cast as",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "leader",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "anchor",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "alternative charge against",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "BJP",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "lead",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "charge",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "stronger anchor",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "alternative charge against",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "BJP",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "shadow",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "defeat for",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "Congress",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "crushing defeat in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "polls",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Gandhi Vadra",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "on",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "future",
+                                "sub": "hopes for mass evacuations of civilians",
                                 "type": "obj"
                             }
                         }
