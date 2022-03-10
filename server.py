@@ -1,7 +1,6 @@
 # make a basic flask server with one route, and import jasonify
 from datasets import ReadInstruction
 from flask import Flask, jsonify, request, render_template
-from flask_cors import CORS
 from js2py import require
 from modules import *
 import os
@@ -33,11 +32,13 @@ def process():
     text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
     temp_text = text
 
-    nodes = create_nodes(clean_annotations(annotate(text)))
+    summary = get_summary(text)
+
+    nodes = create_nodes(clean_annotations(annotate(summary)))
     json_output = open("temp.json", "w")
     json.dump(nodes, json_output, indent=4)
 
-    summary = get_summary(text)
+    
     sections = get_sections(text)
     ents = get_ents(summary)
 

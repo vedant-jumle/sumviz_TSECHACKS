@@ -12,6 +12,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
+        mark {
+            background-color: yellow;
+            color: black;
+        }
+
         body {
             margin: 0;
             background: #222;
@@ -121,6 +126,20 @@ padding: 10px 0;
             justify-content: space-between;
             margin: 30px;
             padding: 0%;
+            background-color: white;
+        }
+
+        .locked_input {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0%;
+            background-color: white;
+            font-size: small;
+            padding: 25px;
         }
 
 
@@ -304,9 +323,10 @@ font-size: 18px;
     <!--Main-->
     <section>
         <div class="text-editor-sec">
-            <div class="editable_viewL col-sm-6">
+            <div class="editable_viewL col-sm-6" style="overflow-y: scroll;">
                 <textarea id="text_input" rows="34" cols="100" name="description"
                     class="text-editor">Enter the text</textarea>
+                <p id="P_input" class="text-editor"></p>
             </div>
             <div id="graph" class="editable_viewR col-sm-6 text-editor">
                 <!-- <textarea rows="100" cols="100" name="description" class="text-editor">
@@ -318,9 +338,9 @@ font-size: 18px;
 
     <div class="hundred">
         <div class="three-button">
-            <button class="button"><span>Intro</span></button>
-            <button class="button"><span>Body</span></button>
-            <button class="button"><span>Conclude</span></button>
+            <button class="button" onclick="highlight_section('INTRODUCTION')"><span>Introdution</span></button>
+            <button class="button" onclick="highlight_section('BODY')"><span>Body</span></button>
+            <button class="button" onclick="highlight_section('CONCLUSION')"><span>Conclusion</span></button>
         </div>
         <div class="fifty-percent">
 
@@ -366,15 +386,18 @@ font-size: 18px;
 
 </body>
 <script>
+    is_locked = false;
     summary = ""
     nodes = {}
     sections = {}
     enitities = []
+    num_parent_nodes = 0
     function clear_graph() {
         document.getElementById("graph").innerHTML = "";
     }
     async function query() {
         clear_graph()
+        lock_input()
         text = document.getElementById("text_input").value;
         res = await fetch(`/process?text=${text}`, {
             headers: {
@@ -395,6 +418,19 @@ font-size: 18px;
         updateSummary(summary, enitities)
     }
 
+    function lock_input() {
+        is_locked = true;
+        document.getElementById("P_input").innerText = document.getElementById("text_input").value.replace(/(\r\n|\n|\r)/gm, "");
+        document.getElementById("text_input").style.display = "none";
+    }
+
+    function reset_input() {
+        is_locked = false;
+        document.getElementById("P_input").innerText = ""
+        document.getElementById("text_input").style.display = "block";
+        document.getElementById("text_input").value = "";
+    }
+
     // update the summary element with the summary and hyperlink the salient words such that they do a google search
     function updateSummary(summary, salient_words) {
         var summary_element = document.getElementById("summary");
@@ -409,24 +445,44 @@ font-size: 18px;
         }
     }
 
+    function highlight_section(section_name) {
+        if (is_locked){
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i].type == section_name) {
+                    console.log(sections[i].start, sections[i].end)
+                    highlight(sections[i].start, sections[i].end)
+                    break
+                }
+            }
+        }else{
+            alert("Please click the analyze button first")
+        }
+    }
 
     function highlight(start_char, end_char) {
         // clear previous highglight
-        _html = document.getElementById("text_input").innerHTML;
-        _html = _html.replace("<mark>", "");
-        _html = _html.replace("<\/mark>", "");
-
-        // highlight
-        _html = _html.replace(start_char, "<mark>" + start_char);
-        _html = _html.replace(end_char, end_char + "</mark>");
+        if (is_locked){
+            para = document.getElementById("P_input");
+            para.innerHTML = para.innerHTML.replace("<mark>", "")
+            para.innerHTML = para.innerHTML.replace("</mark>", "")
+            
+            // insert <mark> at start_char and </mark> at end_char
+            para.innerHTML = para.innerHTML.substring(0, start_char) + "<mark>" + para.innerHTML.substring(start_char, end_char) + "</mark>" + para.innerHTML.substring(end_char);
+        }else{
+            alert("Please click the analyze button first")
+        }
     }
 
     function build_graph() {
         var canvas = d3.select(".editable_viewR").append("svg")
             .attr("width", 700)
             .attr("height", 700)
+            .call(d3.zoom().on("zoom", function () {
+                canvas.attr("transform", d3.event.transform)
+            }))
             .append("g")
-            .attr("transform", "translate(50,50)");
+            .attr("transform", "translate(0,0)")
+            .attr("zoom", "0.1")
 
 
         var tree = d3.tree()
@@ -434,6 +490,10 @@ font-size: 18px;
 
         d3.json("tree", function (err, data) {
             console.log(data)
+
+            // set number parent nodes
+            num_parent_nodes = data.children.length;
+
             var nodes = tree(d3.hierarchy(data));
             var links = nodes.links();
 
@@ -443,7 +503,7 @@ font-size: 18px;
                 .append("g")
                 .attr("class", "node")
                 .attr("transform", function (d) {
-                    return "translate(" + d.y + "," + d.x + ")";
+                    return "translate(" + d.y * 2 + "," + d.x * 0.2 * num_parent_nodes + ")";
                 });
             //action on selecting a circle only for one entity  
 
@@ -451,7 +511,9 @@ font-size: 18px;
 
             node.on("click", function (d) {
                 if (d.data.data.click == "click") {
-                    start_string = d.data.data.sub;
+                    text = d.data.data.sub
+                    // if text has more than 3 words, then add \n in the middle
+                    start_string = text;
                     end_string = []
                     for (let i = 0; i < d.data.children.length; i++) {
                         highlight(start_string, (d.data.children[i].data.sub));
@@ -468,11 +530,19 @@ font-size: 18px;
 
             node.append("circle")
                 .attr("r", d => {
-                    if (d.data.data.ref != null) {
+                    if (d.data.data.type == "ref") {
                         return 5;
                     } else { return 20 }
                 })
-                .attr("fill", "steelblue");
+                .attr("fill", d => {
+                    if (d.data.data.type == "obj"){
+                        return "#ffcc66"
+                    }else if(d.data.data.type == "root" || d.data.data.type == "ref"){
+                        return "steelblue"
+                    }else{
+                        return "#dd99ff"
+                    }
+                });
 
 
 
@@ -480,6 +550,23 @@ font-size: 18px;
                 .text(function (d) {
                     //console.log(d);
                     return d.data.data.sub;
+                })
+                .attr("dy", d => {
+                    offset = "-1.5em";
+                    if (d.data.data.type == "root") { }
+                })
+                .attr("dx", d => {
+                    size = "-3em";
+                    if (d.data.data.type == "root") { size = "-5em" }
+                    else if (d.data.data.type == "ref") { size = "0em" }
+                    else if (d.data.data.type == "obj") { return "1.5em" }
+                    return size
+                })
+                .attr("font-style", "bold")
+                .attr("font-size", d => {
+                    if (d.data.data.type == "ref") {
+                        return "14px";
+                    } else { return "16px" }
                 })
 
 
@@ -489,8 +576,8 @@ font-size: 18px;
             //     return [d.y, d.x];
             // });
             var diagonal = d3.linkVertical()
-                .x(function (d) { return d.y })
-                .y(function (d) { return d.x })
+                .x(function (d) { return d.y * 2 })
+                .y(function (d) { return d.x * 0.2 * num_parent_nodes })
 
 
 

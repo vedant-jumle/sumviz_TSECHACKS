@@ -19,7 +19,7 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 def get_summary(text):
-    summary = " ".join(summarizer(text, min_length=20))
+    summary = "".join(summarizer(text, min_length=20))
     return summary
 
 def annotate(text):
@@ -54,7 +54,7 @@ def get_sections(text):
 
 def create_nodes(annotations):
     data = {
-        "data": {"sub": "summary"},
+        "data": {"sub": "summary", "type": "root"},
         "children": []
     }
 
@@ -67,9 +67,9 @@ def create_nodes(annotations):
                 "data": {"sub": annotation["subject"], "click": "click"},
                 "children": [
                     {
-                        "data": {"sub": annotation["relation"], "ref": "ref"},
+                        "data": {"sub": annotation["relation"], "type": "ref"},
                         "children": [{
-                            "data": {"sub": annotation["object"]}
+                            "data": {"sub": annotation["object"], "type": "obj"}
                         }]
                     }
                 ]
@@ -77,9 +77,9 @@ def create_nodes(annotations):
         else:
             index = parents.index(annotation["subject"])
             data["children"][index]["children"].append({
-                "data": {"sub": annotation["relation"], "ref": "ref"},
+                "data": {"sub": annotation["relation"], "type": "ref"},
                 "children": [{
-                    "data": {"sub": annotation["object"]},
+                    "data": {"sub": annotation["object"], "type": "obj"},
                 }]
             })
 
