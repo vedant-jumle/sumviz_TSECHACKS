@@ -223,7 +223,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: white;
+            padding: 10px 10vw;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 0%;
+            height: 100px;
             z-index: 9;
             margin-left: 0px;
         }
@@ -403,28 +407,40 @@
             display:flex;
             justify-content: space-between;
         }
+
+        .name{
+            width: 50px;
+            height: 50px;
+        }
+
+        .brandnav{
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="brandnav">
-            <img src="https://cdn.discordapp.com/attachments/950975761228111894/951242173033091092/logo_prev_ui_1.png"
-                class="brand-logo" alt="">
-            <div class="name">
-                Sumwiz
+        <div class="navbar">
+            <div class="brandnav">
+                <img src="https://cdn.discordapp.com/attachments/950975761228111894/951242173033091092/logo_prev_ui_1.png"
+                    class="brand-logo" alt="">
+                <div class="name">
+                    Sumwiz
+                </div>
             </div>
-        </div>
 
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#graph">Visualize text</a></li>
-                    <li><a href="#sum">Summarize text</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#graph">Visualize text</a></li>
+                        <li><a href="#sum">Summarize text</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <!--Main-->
@@ -442,7 +458,7 @@
 
     <div class="hundred">
         <div class="three-button">
-            <button class="button" onclick="highlight_section('INTRODUCTION')"><span>Introdution</span></button>
+            <button class="button" onclick="highlight_section('INTRODUCTION')"><span>Introduction</span></button>
             <button class="button" onclick="highlight_section('BODY')"><span>Body</span></button>
             <button class="button" onclick="highlight_section('CONCLUSION')"><span>Conclusion</span></button>
         </div>
@@ -529,6 +545,8 @@
         document.getElementById("P_input").innerText = ""
         document.getElementById("text_input").style.display = "block";
         document.getElementById("text_input").value = "";
+        resetHighlights()
+        clear_graph()
     }
 
     // update the summary element with the summary and hyperlink the salient words such that they do a google search
@@ -557,12 +575,18 @@
         }
     }
 
-    function highlight(start_char, end_char) {
+    function resetHighlights(){
+        para = document.getElementById("P_input");
+        para.innerHTML = para.innerHTML.replace("<mark>", "")   
+        para.innerHTML = para.innerHTML.replace("</mark>", "")
+    }
+
+    function highlight(start_char, end_char, type="section") {
         // clear previous highglight
         if (is_locked) {
             para = document.getElementById("P_input");
-            para.innerHTML = para.innerHTML.replace("<mark>", "")
-            para.innerHTML = para.innerHTML.replace("</mark>", "")
+            
+            if (type == "section"){resetHighlights()}
 
             // insert <mark> at start_char and </mark> at end_char
             para.innerHTML = para.innerHTML.substring(0, start_char) + "<mark>" + para.innerHTML.substring(start_char, end_char) + "</mark>" + para.innerHTML.substring(end_char);
@@ -607,17 +631,6 @@
 
             test = "This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. The central question that drives my work is, “How can we live better?” To answer that question, I like to write about science-based ways to solve practical problems. You’ll find interesting articles to read on topics like how to stop procrastinating as well as personal recommendations like my list of the best books to read and my minimalist travel guide. Ready to dive in? You can use the categories below to browse my best articles."
 
-            node.on("click", function (d) {
-                if (d.data.data.click == "click") {
-                    text = d.data.data.sub
-                    // if text has more than 3 words, then add \n in the middle
-                    start_string = text;
-                    end_string = []
-                    for (let i = 0; i < d.data.children.length; i++) {
-                        highlight(start_string, (d.data.children[i].data.sub));
-                    }
-                }
-            });
             node.append("circle")
                 .attr("r", d => {
                     if (d.data.data.type == "ref") {

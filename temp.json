@@ -6,7 +6,123 @@
     "children": [
         {
             "data": {
-                "sub": "hospital",
+                "sub": "Pollution",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "has become",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "common yet serious issue",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "has become in",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "today \u2019s world",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "today",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "in",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "world",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "it",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "rising at_time",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "day by day",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "\u2019s pollution",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "Since consumed time",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "Air PollutionAir Pollution",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "occurs due",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "presence of harmful gases in air",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "presence",
                 "click": "click"
             },
             "children": [
@@ -18,7 +134,7 @@
                     "children": [
                         {
                             "data": {
-                                "sub": "besieged port city of Mariupol",
+                                "sub": "air",
                                 "type": "obj"
                             }
                         }
@@ -28,19 +144,19 @@
         },
         {
             "data": {
-                "sub": "airstrikes",
+                "sub": "It",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "hit including",
+                        "sub": "is also affecting",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "two west",
+                                "sub": "marine life",
                                 "type": "obj"
                             }
                         }
@@ -48,13 +164,13 @@
                 },
                 {
                     "data": {
-                        "sub": "hit including",
+                        "sub": "\u2019s",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "two west",
+                                "sub": "us",
                                 "type": "obj"
                             }
                         }
@@ -64,19 +180,85 @@
         },
         {
             "data": {
-                "sub": "attacks",
+                "sub": "water",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "came amid",
+                        "sub": "is consumed at_time",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "hopes for mass evacuations of civilians from cities including Mariupol",
+                                "sub": "time",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "ATyphoidPolioDysenteryDiarrhoea",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "is important",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "lives",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "CholeraHepatitis ATyphoidPolioDysenteryDiarrhoea",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "is",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "part",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "We",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "need",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "keep",
                                 "type": "obj"
                             }
                         }
@@ -84,13 +266,115 @@
                 },
                 {
                     "data": {
-                        "sub": "came amid",
+                        "sub": "keep",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "hopes for mass evacuations of civilians",
+                                "sub": "our environment safe",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "effective methods",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "reduce",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "pollution",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "transport",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "can take to",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "different places",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "industries",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "disposing of",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "chemicals",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "should avoid",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "disposing of harmful chemicals in soil",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "data": {
+                "sub": "Trees help",
+                "click": "click"
+            },
+            "children": [
+                {
+                    "data": {
+                        "sub": "hold together",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "soil",
                                 "type": "obj"
                             }
                         }
