@@ -41,8 +41,6 @@ def process():
 
 @app.route("/tree")
 def tree():
-    # text = request.args.get("text", "").replace("\n", " ").replace("%20", " ")
-
     input_file = open("temp.json", "r")
     data = json.load(input_file)
 
