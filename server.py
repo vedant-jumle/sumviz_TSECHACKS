@@ -6,15 +6,8 @@ import json
 
 # create a flask app
 app = Flask(__name__)
-# CORS(app)
-
 
 temp_text = ""
-
-
-# set static folder
-app.config['STATIC_FOLDER'] = 'static'
-
 
 # create a route
 @app.route('/')
