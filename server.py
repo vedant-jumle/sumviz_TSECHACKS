@@ -1,9 +1,6 @@
 # make a basic flask server with one route, and import jasonify
-from datasets import ReadInstruction
 from flask import Flask, jsonify, request, render_template
-from js2py import require
 from modules import *
-import os
 import json
 
 
