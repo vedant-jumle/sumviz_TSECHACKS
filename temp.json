@@ -6,123 +6,7 @@
     "children": [
         {
             "data": {
-                "sub": "Pollution",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "has become",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "common yet serious issue",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "has become in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "today \u2019s world",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "today",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "in",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "world",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "it",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "rising at_time",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "day by day",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "data": {
-                        "sub": "\u2019s pollution",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "Since consumed time",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Air PollutionAir Pollution",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "occurs due",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "presence of harmful gases in air",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "presence",
+                "sub": "its worst economic crises",
                 "click": "click"
             },
             "children": [
@@ -134,7 +18,7 @@
                     "children": [
                         {
                             "data": {
-                                "sub": "air",
+                                "sub": "over 70 years",
                                 "type": "obj"
                             }
                         }
@@ -144,19 +28,19 @@
         },
         {
             "data": {
-                "sub": "It",
+                "sub": "Sri Lanka",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "is also affecting",
+                        "sub": "battles",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "marine life",
+                                "sub": "one of its economic crises in over 70 years",
                                 "type": "obj"
                             }
                         }
@@ -164,13 +48,13 @@
                 },
                 {
                     "data": {
-                        "sub": "\u2019s",
+                        "sub": "battles",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "us",
+                                "sub": "one of its crises in over 70 years",
                                 "type": "obj"
                             }
                         }
@@ -180,19 +64,19 @@
         },
         {
             "data": {
-                "sub": "water",
+                "sub": "country",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "is consumed at_time",
+                        "sub": "be",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "time",
+                                "sub": "able",
                                 "type": "obj"
                             }
                         }
@@ -202,63 +86,19 @@
         },
         {
             "data": {
-                "sub": "ATyphoidPolioDysenteryDiarrhoea",
+                "sub": "He",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "is important",
+                        "sub": "also urged",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "lives",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "CholeraHepatitis ATyphoidPolioDysenteryDiarrhoea",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "is",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "part",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "We",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "need",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "keep",
+                                "sub": "raise",
                                 "type": "obj"
                             }
                         }
@@ -266,13 +106,27 @@
                 },
                 {
                     "data": {
-                        "sub": "keep",
+                        "sub": "urged",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "our environment safe",
+                                "sub": "government",
+                                "type": "obj"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "sub": "also urged",
+                        "type": "ref"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "sub": "to raise",
                                 "type": "obj"
                             }
                         }
@@ -282,7 +136,7 @@
         },
         {
             "data": {
-                "sub": "effective methods",
+                "sub": "we",
                 "click": "click"
             },
             "children": [
@@ -294,7 +148,7 @@
                     "children": [
                         {
                             "data": {
-                                "sub": "pollution",
+                                "sub": "overall import demand",
                                 "type": "obj"
                             }
                         }
@@ -304,41 +158,19 @@
         },
         {
             "data": {
-                "sub": "transport",
+                "sub": "situation",
                 "click": "click"
             },
             "children": [
                 {
                     "data": {
-                        "sub": "can take to",
+                        "sub": "would",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "different places",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "industries",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "disposing of",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "chemicals",
+                                "sub": "would thing",
                                 "type": "obj"
                             }
                         }
@@ -346,35 +178,13 @@
                 },
                 {
                     "data": {
-                        "sub": "should avoid",
+                        "sub": "would",
                         "type": "ref"
                     },
                     "children": [
                         {
                             "data": {
-                                "sub": "disposing of harmful chemicals in soil",
-                                "type": "obj"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "data": {
-                "sub": "Trees help",
-                "click": "click"
-            },
-            "children": [
-                {
-                    "data": {
-                        "sub": "hold together",
-                        "type": "ref"
-                    },
-                    "children": [
-                        {
-                            "data": {
-                                "sub": "soil",
+                                "sub": "would thing of past",
                                 "type": "obj"
                             }
                         }

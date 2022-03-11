@@ -132,3 +132,5 @@ dmypy.json
 /spacy_config
 /training_dataset
 /datasets
+
+.props
